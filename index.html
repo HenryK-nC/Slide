@@ -11,17 +11,21 @@
       position: relative;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: #0F172A;
     }
-    #slide-frame {
+    #frame-wrap {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      left: 50%;
+      top: 50%;
+      width: 1280px;
+      height: 720px;
+      margin-left: -640px;
+      margin-top: -360px;
+      transform-origin: center center;
+    }
+    #slide-frame {
+      width: 1280px;
+      height: 720px;
       border: none;
       display: block;
     }
@@ -48,16 +52,28 @@
 </head>
 <body>
   <div id="wrap">
-    <iframe id="slide-frame" src="1.html" title="Slide"></iframe>
+    <div id="frame-wrap">
+      <iframe id="slide-frame" src="1.html" title="Slide"></iframe>
+    </div>
     <div id="overlay" title="클릭 또는 → / Space: 다음, ←: 이전"></div>
     <div id="page-indicator">1 / 7</div>
   </div>
   <script>
     const frame = document.getElementById('slide-frame');
+    const frameWrap = document.getElementById('frame-wrap');
     const overlay = document.getElementById('overlay');
     const indicator = document.getElementById('page-indicator');
     let current = 1;
     const total = 7;
+    const SLIDE_W = 1280, SLIDE_H = 720;
+
+    function fitScale() {
+      const s = Math.min(window.innerWidth / SLIDE_W, window.innerHeight / SLIDE_H);
+      frameWrap.style.transform = 'scale(' + s + ')';
+    }
+
+    fitScale();
+    window.addEventListener('resize', fitScale);
 
     function go(n) {
       current = n;
