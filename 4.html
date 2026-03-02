@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport">
+<title>Key Agenda: The Fireside Chats</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Inter:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #0F172A; /* Slate 900 */
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            color: #F8FAFC;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 50px 80px;
+            box-sizing: border-box;
+            background-color: #0F172A;
+        }
+
+        /* Subtle Grid Background */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2394a3b8' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        /* Header Styling */
+        .header-section {
+            margin-bottom: 30px;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            color: #818CF8; /* Indigo 400 */
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin: 0;
+        }
+
+        .subtitle-box {
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            padding: 10px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+        }
+
+        .subtitle-text {
+            color: #94A3B8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Grid Layout */
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 24px;
+            flex: 1;
+            z-index: 10;
+        }
+
+        /* Card Styling */
+        .session-card {
+            background-color: #1E293B; /* Slate 800 */
+            border: 1px solid #334155; /* Slate 700 */
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.2s;
+            overflow: hidden;
+        }
+
+        .session-card:hover {
+            border-color: #475569;
+        }
+
+        /* Color Accents (Left Border) */
+        .accent-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+        .bar-blue { background-color: #3B82F6; }   /* Payments */
+        .bar-teal { background-color: #14B8A6; }   /* Infra */
+        .bar-purple { background-color: #8B5CF6; } /* Reg/STO */
+        .bar-rose { background-color: #F43F5E; }   /* Asset Mgmt */
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .session-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .badge-blue { background-color: rgba(59, 130, 246, 0.15); color: #93C5FD; }
+        .badge-teal { background-color: rgba(20, 184, 166, 0.15); color: #5EEAD4; }
+        .badge-purple { background-color: rgba(139, 92, 246, 0.15); color: #C4B5FD; }
+        .badge-rose { background-color: rgba(244, 63, 94, 0.15); color: #FDA4AF; }
+
+        .icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #CBD5E1;
+        }
+
+        /* Card Content */
+        .session-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .participants {
+            font-size: 0.9rem;
+            color: #94A3B8;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .vs-text {
+            color: #475569;
+            font-size: 0.75rem;
+            text-transform: lowercase;
+        }
+
+        .topic-desc {
+            font-size: 0.95rem;
+            color: #CBD5E1;
+            line-height: 1.5;
+            font-family: 'Noto Sans KR', sans-serif;
+            flex-grow: 1;
+            border-top: 1px solid #334155;
+            padding-top: 12px;
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        .slide-footer {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #1E293B;
+            padding-top: 16px;
+            font-size: 0.875rem;
+            color: #64748B;
+        }
+
+    </style>
+</head>
+<body style="">
+<div class="bg-pattern"></div>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-section">
+<div>
+<span class="eyebrow">Program Schedule</span>
+<h1 class="main-title">Key Agenda: The Fireside Chats</h1>
+</div>
+<div class="subtitle-box">
+<p class="subtitle-text">
+<i class="far fa-clock mr-2 text-indigo-400"></i>
+                    Format: 25min Discussion + 10min Live Q&amp;A
+                </p>
+</div>
+</div>
+<!-- Grid Content -->
+<div class="agenda-grid">
+<!-- Session 1: Payments -->
+<div class="session-card">
+<div class="accent-bar bar-blue"></div>
+<div class="card-header">
+<span class="session-badge badge-blue">Session 01</span>
+<div class="icon-circle">
+<i class="fas fa-credit-card text-blue-400"></i>
+</div>
+</div>
+<h2 class="session-title">Future of Payments</h2>
+<div class="participants">
+<span class="text-blue-200">BC Card</span>
+<span class="vs-text">×</span>
+<span class="text-white">EF</span>
+<span class="vs-text">×</span>
+<span class="text-blue-200">Visa/Mastercard</span>
+</div>
+<div class="topic-desc">
+<p>Exploring the convergence of traditional payment rails and blockchain. Deep dive into stablecoin settlement networks, interchange fee models, risk management, and merchant adoption strategies.</p>
+</div>
+</div>
+<!-- Session 2: Infrastructure -->
+<div class="session-card">
+<div class="accent-bar bar-teal"></div>
+<div class="card-header">
+<span class="session-badge badge-teal">Session 02</span>
+<div class="icon-circle">
+<i class="fas fa-network-wired text-teal-400"></i>
+</div>
+</div>
+<h2 class="session-title">Infrastructure &amp; L2 Strategy</h2>
+<div class="participants">
+<span class="text-teal-200">GIWA (Upbit L2)</span>
+<span class="vs-text">×</span>
+<span class="text-teal-200">Base</span>
+<span class="vs-text">×</span>
+<span class="text-white">EF</span>
+</div>
+<div class="topic-desc">
+<p>Defining optimal Layer 2 strategies for KRW-pegged stablecoins and Real World Assets (RWA). A technical discussion on scalability, interoperability, and the Korean infrastructure landscape.</p>
+</div>
+</div>
+<!-- Session 3: Regulatory/STO -->
+<div class="session-card" style="transform: translate(0px, -12.7963px);">
+<div class="accent-bar bar-purple"></div>
+<div class="card-header">
+<span class="session-badge badge-purple">Session 03</span>
+<div class="icon-circle">
+<i class="fas fa-scale-balanced text-purple-400"></i>
+</div>
+</div>
+<h2 class="session-title">Regulatory &amp; STO Era</h2>
+<div class="participants">
+<span class="text-purple-200">Top Securities Firms</span>
+<span class="vs-text">×</span>
+<span class="text-white">EF (Besu)</span>
+</div>
+<div class="topic-desc">
+<p>Preparing for the 2026 STO institutionalization. Discussing hybrid architectures bridging private financial networks with public Ethereum chains using Hyperledger Besu and privacy tools.</p>
+</div>
+</div>
+<!-- Session 4: Asset Management -->
+<div class="session-card" style="transform: translate(-0.914023px, -14.6244px);">
+<div class="accent-bar bar-rose"></div>
+<div class="card-header">
+<span class="session-badge badge-rose">Session 04</span>
+<div class="icon-circle">
+<i class="fas fa-chart-line text-rose-400"></i>
+</div>
+</div>
+<h2 class="session-title">Institutional Asset Management</h2>
+<div class="participants">
+<span class="text-rose-200">Global Asset Managers</span>
+<span class="vs-text">×</span>
+<span class="text-white">EF</span>
+</div>
+<div class="topic-desc">
+<p>A 'toxic', no-fluff dialogue on ETH as a strategic institutional asset. Addressing valuation models, custody risks, staking yields, and the macro thesis for Ethereum in a diversified portfolio.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="slide-footer">
+<p>Ethereum Korea 2026</p>
+<p>04</p>
+</div>
+</div>
+
+</body></html>

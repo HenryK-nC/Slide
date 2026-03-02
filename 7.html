@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Who We Are: Proven Track Record</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Inter:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #0F172A; /* Slate 900 */
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            color: #F8FAFC;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 60px 80px;
+            box-sizing: border-box;
+        }
+
+        /* Subtle Grid Background */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2394a3b8' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        /* Header Styling */
+        .header-section {
+            margin-bottom: 40px;
+            z-index: 10;
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            color: #818CF8; /* Indigo 400 */
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Content Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            flex: 1;
+            z-index: 10;
+        }
+
+        /* Team Card */
+        .team-card {
+            background-color: #1E293B; /* Slate 800 */
+            border: 1px solid #334155; /* Slate 700 */
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .team-card:hover {
+            border-color: #475569;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Icon Container */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 32px;
+            background-color: #0F172A; /* Slate 900 */
+            border: 1px solid #334155;
+            position: relative;
+        }
+
+        /* Team Specific Accents */
+        .icon-nonce { color: #60A5FA; border-color: rgba(96, 165, 250, 0.3); }
+        .icon-nonce::after { content: ''; position: absolute; inset: 0; border-radius: 20px; box-shadow: 0 0 20px rgba(96, 165, 250, 0.15); opacity: 0.5; }
+        
+        .icon-ticker { color: #A78BFA; border-color: rgba(167, 139, 250, 0.3); }
+        .icon-ticker::after { content: ''; position: absolute; inset: 0; border-radius: 20px; box-shadow: 0 0 20px rgba(167, 139, 250, 0.15); opacity: 0.5; }
+        
+        .icon-kanon { color: #34D399; border-color: rgba(52, 211, 153, 0.3); }
+        .icon-kanon::after { content: ''; position: absolute; inset: 0; border-radius: 20px; box-shadow: 0 0 20px rgba(52, 211, 153, 0.15); opacity: 0.5; }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .team-desc {
+            font-size: 1rem;
+            color: #94A3B8;
+            line-height: 1.6;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 40px;
+            padding: 24px;
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 12px;
+            border: 1px solid #334155;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+        }
+
+        .contact-label {
+            font-size: 1rem;
+            color: #94A3B8;
+            margin-right: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-email {
+            font-size: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #F8FAFC;
+            letter-spacing: 0.02em;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .contact-email:hover {
+            border-color: #818CF8;
+            background: rgba(99, 102, 241, 0.1);
+            color: #fff;
+        }
+
+        /* Footer */
+        .slide-footer {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #1E293B;
+            padding-top: 16px;
+            font-size: 0.875rem;
+            color: #64748B;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-section">
+<span class="eyebrow">Organizing Committee</span>
+<h1 class="main-title">Who We Are: Proven Track Record</h1>
+</div>
+<!-- Team Grid -->
+<div class="team-grid">
+<!-- Nonce Classic -->
+<div class="team-card">
+<div class="icon-box icon-nonce">
+<i class="fas fa-code-branch"></i>
+</div>
+<h3 class="team-name">Nonce Classic</h3>
+<div class="team-desc">
+<p>A specialized Venture Capital firm hard-forked from <strong>'nonce'</strong>, Korea's most influential blockchain builder community.</p>
+</div>
+</div>
+<!-- Ticker is ETH -->
+<div class="team-card">
+<div class="icon-box icon-ticker">
+<i class="fab fa-ethereum"></i>
+</div>
+<h3 class="team-name">Ticker is ETH</h3>
+<div class="team-desc">
+<p>An elite collective of Korea's top-tier <strong>Ethereum builders and researchers</strong> driving technical discourse and innovation.</p>
+</div>
+</div>
+<!-- Kanon -->
+<div class="team-card">
+<div class="icon-box icon-kanon">
+<i class="fas fa-rocket"></i>
+</div>
+<h3 class="team-name">Kanon</h3>
+<div class="team-desc">
+<p>The strategic GTM arm of Nonce Classic, specializing in <strong>hyper-local marketing</strong> and execution for global protocols.</p>
+</div>
+</div>
+</div>
+<!-- Contact Section -->
+<div class="contact-section">
+<span class="contact-label">Partnership Inquiries</span>
+<div class="contact-email">
+<i class="far fa-envelope mr-3 text-indigo-400"></i>eth26@nonceclassic.org
+        </div>
+</div>
+<!-- Footer -->
+<div class="slide-footer">
+<p>Ethereum Korea 2026</p>
+<p>07</p>
+</div>
+</div>
+</body>
+</html>

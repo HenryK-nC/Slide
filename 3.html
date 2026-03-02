@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Concept &amp; Differentiators</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Inter:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #0F172A; /* Slate 900 */
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            color: #F8FAFC;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 60px 80px;
+            box-sizing: border-box;
+            background-color: #0F172A;
+        }
+
+        /* Geometric Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM22.485 0l.83.828-1.415 1.415L19.658 0h2.827zM0 5.657L0 2.83l2.244 2.243L0 7.499v-1.842zM0 37.811l.83.828-1.415 1.415L0 37.811zM22.485 60l.83-.828-1.415-1.415L19.658 60h2.827zM54.627 60l.83-.828-1.415-1.415L51.8 60h2.827zM0 29.742l2.244-2.243L0 25.257v4.485z' fill='%23334155' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        /* Header Styling */
+        .header-stripe {
+            width: 60px;
+            height: 4px;
+            background-color: #6366F1; /* Indigo 500 */
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        .main-title {
+            font-size: 3rem; /* 48px */
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 1.5rem; /* 24px */
+            font-weight: 300;
+            color: #94A3B8; /* Slate 400 */
+            margin-bottom: 50px;
+            letter-spacing: 0.01em;
+        }
+
+        /* Card Container */
+        .cards-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+            flex: 1;
+            z-index: 10;
+        }
+
+        /* Individual Card Styling */
+        .prop-card {
+            flex: 1;
+            background-color: #1E293B; /* Slate 800 */
+            border: 1px solid #334155; /* Slate 700 */
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Top Border Accent - avoiding gradient styles as requested */
+        .card-accent-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        .accent-blue { background-color: #3B82F6; }
+        .accent-purple { background-color: #8B5CF6; }
+        .accent-indigo { background-color: #6366F1; }
+
+        /* Icon Wrapper */
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .icon-blue { background-color: rgba(59, 130, 246, 0.15); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .icon-purple { background-color: rgba(139, 92, 246, 0.15); color: #A78BFA; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .icon-indigo { background-color: rgba(99, 102, 241, 0.15); color: #818CF8; border: 1px solid rgba(99, 102, 241, 0.3); }
+
+        /* Content Typography */
+        .card-title {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card-desc {
+            font-size: 1rem; /* 16px */
+            line-height: 1.6;
+            color: #CBD5E1; /* Slate 300 */
+            font-family: 'Noto Sans KR', sans-serif;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .tag-blue { color: #93C5FD; background-color: rgba(59, 130, 246, 0.2); }
+        .tag-purple { color: #C4B5FD; background-color: rgba(139, 92, 246, 0.2); }
+        .tag-indigo { color: #A5B4FC; background-color: rgba(99, 102, 241, 0.2); }
+
+        /* Footer Info */
+        .slide-footer {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #1E293B;
+            padding-top: 20px;
+            font-size: 0.875rem;
+            color: #64748B;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="slide-container">
+<!-- Header Section -->
+<div>
+<div class="header-stripe"></div>
+<h1 class="main-title">Concept &amp; Differentiators</h1>
+<p class="subtitle">"The Open Seminar: Beyond the Surface"</p>
+</div>
+<!-- Cards Section -->
+<div class="cards-container">
+<!-- Card 1: EF Direct Engagement -->
+<div class="prop-card">
+<div class="card-accent-top accent-blue"></div>
+<div class="icon-box icon-blue">
+<i class="fas fa-handshake"></i>
+</div>
+<h3 class="card-title">EF Direct Engagement</h3>
+<div class="card-desc">
+<p>Core members of the Ethereum Foundation participate not merely as attendees but as active speakers and panel leaders, facilitating direct technical dialogue.</p>
+</div>
+<div class="card-footer">
+<span class="highlight-tag tag-blue">Foundation Lead</span>
+</div>
+</div>
+<!-- Card 2: Institutional Density -->
+<div class="prop-card">
+<div class="card-accent-top accent-purple"></div>
+<div class="icon-box icon-purple">
+<i class="fas fa-university"></i>
+</div>
+<h3 class="card-title">Institutional Density</h3>
+<div class="card-desc">
+<p>High-density networking with decision-makers from Korea's top-tier financial institutions (BC Card, Securities firms) and Upbit's GIWA team.</p>
+</div>
+<div class="card-footer">
+<span class="highlight-tag tag-purple">Top-tier FI</span>
+</div>
+</div>
+<!-- Card 3: Actionable Insight -->
+<div class="prop-card">
+<div class="card-accent-top accent-indigo"></div>
+<div class="icon-box icon-indigo">
+<i class="fas fa-lightbulb"></i>
+</div>
+<h3 class="card-title">Actionable Insight</h3>
+<div class="card-desc">
+<p>Moving beyond PR headlines to discuss real regulatory compliance, stablecoin pilots, and STO collaboration scenarios for 2026.</p>
+</div>
+<div class="card-footer">
+<span class="highlight-tag tag-indigo">Strategy &amp; Pilot</span>
+</div>
+</div>
+</div>
+<!-- Footer Section -->
+<div class="slide-footer">
+<p>Ethereum Korea 2026</p>
+<p>03</p>
+</div>
+</div>
+</body>
+</html>

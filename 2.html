@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport">
+<title>Why Now? The April Opportunity</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Inter:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #0F172A; /* Slate 900 */
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 80px;
+            box-sizing: border-box;
+        }
+        
+        /* Subtle Grid Background using SVG data URI */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2394a3b8' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #1E293B; /* Slate 800 */
+            border: 1px solid #334155; /* Slate 700 */
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .card-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        /* Typography */
+        h1 {
+            color: #F8FAFC;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #F1F5F9;
+            margin-bottom: 12px;
+        }
+        
+        .section-body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #94A3B8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Specific Card Accents */
+        .card-context .card-icon-wrapper { background-color: rgba(59, 130, 246, 0.1); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .card-gap .card-icon-wrapper { background-color: rgba(239, 68, 68, 0.1); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.2); }
+        .card-insight .card-icon-wrapper { background-color: rgba(16, 185, 129, 0.1); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .card-objective .card-icon-wrapper { background-color: rgba(139, 92, 246, 0.1); color: #A78BFA; border: 1px solid rgba(139, 92, 246, 0.2); }
+
+        .stat-highlight {
+            color: #F8FAFC;
+            font-weight: 700;
+        }
+        
+        /* Layout Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 24px;
+            flex: 1;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body style="">
+<div class="bg-pattern"></div>
+<div class="slide-container z-10">
+<!-- Header -->
+<div class="flex flex-col mb-8">
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-indigo-500 rounded-full"></div>
+<p class="text-indigo-400 font-semibold uppercase tracking-widest text-sm">Strategic Context</p>
+</div>
+<h1 class="text-5xl font-bold text-white">Why Now? <span class="text-gray-500 font-light">The April Opportunity</span></h1>
+</div>
+<!-- Main Content Grid -->
+<div class="grid-layout">
+<!-- Row 1 -->
+<!-- Context -->
+<div class="card card-context">
+<div class="flex justify-between items-start">
+<div class="card-icon-wrapper">
+<i class="fas fa-calendar-check text-xl"></i>
+</div>
+<span class="text-xs font-bold text-blue-400 uppercase tracking-wider bg-blue-900 bg-opacity-30 px-2 py-1 rounded border border-blue-500/20">Timing</span>
+</div>
+<h3 class="section-title">The April Convergence</h3>
+<div class="section-body">
+<p>April 16, 2026 marks a pivotal moment during <span class="text-white font-medium">BUIDL Asia &amp; CIS Week</span>. Global blockchain leaders and Ethereum Foundation executives will converge in Seoul, creating a rare window for high-level engagement.</p>
+</div>
+</div>
+<!-- The Gap -->
+<div class="card card-gap">
+<div class="flex justify-between items-start">
+<div class="card-icon-wrapper">
+<i class="fas fa-unlink text-xl"></i>
+</div>
+<span class="text-xs font-bold text-red-400 uppercase tracking-wider bg-red-900 bg-opacity-30 px-2 py-1 rounded border border-red-500/20">The Gap</span>
+</div>
+<h3 class="section-title">The Institutional Void</h3>
+<div class="section-body">
+<p>Despite numerous events, there is a <span class="text-white font-medium">critical absence</span> of a high-density forum where 'Institutional Finance' (Traditional KRW) meets 'Ethereum Core Tech' (Web3) for serious, actionable dialogue.</p>
+</div>
+</div>
+<!-- Row 2 -->
+<!-- Insight -->
+<div class="card card-insight" style="transform: translate(-0.914023px, -10.9683px);">
+<div class="flex justify-between items-start">
+<div class="card-icon-wrapper">
+<i class="fas fa-chart-pie text-xl"></i>
+</div>
+<span class="text-xs font-bold text-green-400 uppercase tracking-wider bg-green-900 bg-opacity-30 px-2 py-1 rounded border border-green-500/20">Market Insight</span>
+</div>
+<h3 class="section-title">The KRW Powerhouse</h3>
+<div class="section-body">
+<p>Korea remains a dominant fiat-native market with <span class="text-white font-bold text-2xl block mt-2">$663 Billion USD</span> <span class="text-sm font-normal text-gray-400">Annual KRW Crypto Trading Volume</span></p>
+</div>
+</div>
+<!-- Objective -->
+<div class="card card-objective" style="transform: translate(0px, -10.9683px);">
+<div class="flex justify-between items-start">
+<div class="card-icon-wrapper">
+<i class="fas fa-bullseye text-xl"></i>
+</div>
+<span class="text-xs font-bold text-purple-400 uppercase tracking-wider bg-purple-900 bg-opacity-30 px-2 py-1 rounded border border-purple-500/20">Objective</span>
+</div>
+<h3 class="section-title">Strategic Unification</h3>
+<div class="section-body">
+<p>We aim to unify fragmented communities (Ludium, BUIDL Asia) into a coherent force, showcasing <span class="text-white font-medium">Korea's cohesive institutional readiness</span> directly to the Ethereum Foundation.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-6 flex justify-between items-center border-t border-gray-800 pt-4">
+<p class="text-gray-600 text-sm font-medium">Ethereum Korea 2026</p>
+<p class="text-gray-600 text-sm font-medium">Strategy Deck <span class="mx-2">|</span> 02</p>
+</div>
+</div>
+
+</body></html>
